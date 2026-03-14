@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Muhammad Darwisy Zamri</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    function validateForm(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("fullname").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const country = document.getElementById("country").value.trim();
+      const comments = document.getElementById("comments").value.trim();
+
+      if (name === "" || email === "" || country === "" || comments === "") {
+        alert("Please fill in all fields before submitting.");
+        return false;
+      }
+
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!email.match(emailPattern)) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+
+      alert("Form submitted successfully!");
+      document.getElementById("contactForm").reset();
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">Darwisy Zamri.</a>
+    <nav>
+      <ul class="navmenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="contact">
+    <h2 class="contact-heading">Contact Me</h2>
+    <form id="contactForm" onsubmit="validateForm(event)">
+      
+      <div class="form-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="country">Country</label>
+        <input type="text" id="country" name="country" required>
+      </div>
+
+      <div class="form-group">
+        <label for="comments">Comments</label>
+        <textarea id="comments" name="comments" required></textarea>
+      </div>
+
+      <button type="submit" class="submit-button">Submit</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Muhammad Darwisy Zamri. All rights reserved.</p>
+  </footer>
+</body>
+</html>
